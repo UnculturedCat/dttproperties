@@ -33,4 +33,5 @@ const Color detailColor = Color(0x66000000);
 const Color backgroundColor = Color(0xff0f0f0f);
 const Color inactiveColor = Color(0xFFebebeb);
 const Color cardShadowColor = Color(0x66ebebeb);
+const Color primaryColor = Color(0xffffffff);
 const EdgeInsets standardPagePadding = EdgeInsets.only(left: 20, right: 20);
