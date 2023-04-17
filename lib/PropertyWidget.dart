@@ -1,21 +1,28 @@
+import 'package:dttproperties/PropertyDetailPage.dart';
 import 'package:dttproperties/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:dttproperties/shared.dart';
 
-class House extends StatelessWidget {
+class PropertyWidget extends StatelessWidget {
   final String price = "45,000";
   final String address = "1011KH Raamgrach";
   final numberOfBedrooms = 3;
   final numberOfBathrooms = 2;
   final double distance = 1800.66;
   final int size = 54;
-  const House({super.key});
+  const PropertyWidget({super.key});
+
+  void _navigateToPropertyPage(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => PropertyDetailPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 20),
       child: InkWell(
+        onTap: () => _navigateToPropertyPage(context),
         child: Container(
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
@@ -66,7 +73,7 @@ class House extends StatelessWidget {
                           ),
                           Text(
                             address,
-                            style: Theme.of(context).textTheme.titleSmall,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
                       ),

@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
           titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
           titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-          titleSmall: TextStyle(
-              fontSize: 12, fontWeight: FontWeight.w500, color: detailColor),
+          bodyLarge: TextStyle(
+              fontSize: 14, fontWeight: FontWeight.w500, color: detailColor),
           bodySmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
-          bodyLarge: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
           bodyMedium: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
         ),
       ),

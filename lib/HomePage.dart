@@ -1,6 +1,6 @@
 import 'package:dttproperties/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:dttproperties/House.dart';
+import 'package:dttproperties/PropertyWidget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -40,11 +40,11 @@ class HomePage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      House(),
-                      House(),
-                      House(),
-                      House(),
-                      House(),
+                      PropertyWidget(),
+                      PropertyWidget(),
+                      PropertyWidget(),
+                      PropertyWidget(),
+                      PropertyWidget(),
                     ],
                   ),
                 ),
