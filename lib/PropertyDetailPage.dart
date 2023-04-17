@@ -16,6 +16,11 @@ class PropertyDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      appBar: AppBar(
+        shadowColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+      ),
+      extendBodyBehindAppBar: true,
       backgroundColor: primaryColor,
       body: Stack(
         children: [
