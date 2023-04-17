@@ -14,16 +14,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: "Gotham SSm",
-        // textTheme: const TextTheme(
-        //   titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-        //   titleMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-        //   titleSmall: TextStyle(
-        //       fontSize: 12, fontWeight: FontWeight.w400, color: detailColor),
-        //   bodySmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
-        //   bodyLarge: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
-        //   bodyMedium: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
-        // ),
+        //fontFamily: "Gotham SSm",
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+          titleMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          titleSmall: TextStyle(
+              fontSize: 12, fontWeight: FontWeight.w500, color: detailColor),
+          bodySmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+          bodyLarge: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+          bodyMedium: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
+        ),
       ),
       home: NavigationManager(),
     );

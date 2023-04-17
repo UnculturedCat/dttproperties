@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Container(
-                padding: EdgeInsets.only(top: 30, bottom: 40),
+                padding: EdgeInsets.only(top: 30, bottom: 20),
                 child: TextFormField(
                   decoration: InputDecoration(
                     hintText: "Search for a home",
@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
                       borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(10),
                     ),
+                    contentPadding: EdgeInsets.all(10),
                   ),
                 ),
               ),
