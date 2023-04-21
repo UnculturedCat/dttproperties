@@ -1,5 +1,5 @@
 import 'package:dttproperties/custom_icons_icons.dart';
-import 'package:dttproperties/shared.dart';
+import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
 
 import 'HomePage.dart';

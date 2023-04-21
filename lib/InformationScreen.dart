@@ -1,4 +1,4 @@
-import 'package:dttproperties/shared.dart';
+import 'package:dttproperties/Shared.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

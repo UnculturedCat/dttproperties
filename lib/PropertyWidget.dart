@@ -1,20 +1,20 @@
-import 'package:dttproperties/PropertyDetailPage.dart';
+import 'package:dttproperties/Property.dart';
+import 'package:dttproperties/PropertyInformationPage.dart';
 import 'package:dttproperties/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:dttproperties/shared.dart';
+import 'package:dttproperties/Shared.dart';
 
 class PropertyWidget extends StatelessWidget {
-  final String price = "45,000";
-  final String address = "1011KH Raamgrach";
-  final numberOfBedrooms = 3;
-  final numberOfBathrooms = 2;
-  final double distance = 1800.66;
-  final int size = 54;
-  const PropertyWidget({super.key});
+  final Property propertyData;
+
+  const PropertyWidget({required this.propertyData, super.key});
 
   void _navigateToPropertyPage(BuildContext context) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => PropertyDetailPage()));
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                PropertyInformationPage(propertyData: propertyData)));
   }
 
   @override
@@ -50,9 +50,11 @@ class PropertyWidget extends StatelessWidget {
                       aspectRatio: 1,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          "assets/Images/download.jpg",
-                          fit: BoxFit.cover,
+                        child: Hero(
+                          tag: propertyData.imageAddress,
+                          child: Image.network(
+                              "https://intern.d-tt.nl${propertyData.imageAddress}",
+                              fit: BoxFit.cover),
                         ),
                       ),
                     ),
@@ -68,11 +70,11 @@ class PropertyWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "\$$price",
+                            "\$${propertyData.price}",
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           Text(
-                            address,
+                            propertyData.address,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
@@ -85,15 +87,16 @@ class PropertyWidget extends StatelessWidget {
                               children: [
                                 LabelledIcon(
                                     icon: CustomIcons.bed,
-                                    label: "$numberOfBedrooms"),
+                                    label: "${propertyData.numberOfBedrooms}"),
                                 LabelledIcon(
                                     icon: CustomIcons.bath,
-                                    label: "$numberOfBathrooms"),
+                                    label: "${propertyData.numberOfBathrooms}"),
                                 LabelledIcon(
-                                    icon: CustomIcons.layers, label: "$size"),
+                                    icon: CustomIcons.layers,
+                                    label: "${propertyData.size}"),
                                 LabelledIcon(
                                     icon: CustomIcons.location,
-                                    label: "$distance km"),
+                                    label: "${propertyData.distance} km"),
                               ],
                             ),
                           ],

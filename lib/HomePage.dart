@@ -1,4 +1,6 @@
-import 'package:dttproperties/shared.dart';
+import 'package:dttproperties/DataManager.dart';
+import 'package:dttproperties/Property.dart';
+import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
 import 'package:dttproperties/PropertyWidget.dart';
 
@@ -39,13 +41,11 @@ class HomePage extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
-                      PropertyWidget(),
-                      PropertyWidget(),
-                      PropertyWidget(),
-                      PropertyWidget(),
-                      PropertyWidget(),
-                    ],
+                    children: DataManager()
+                        .collectedPropertiesData
+                        .map((propertyData) =>
+                            PropertyWidget(propertyData: propertyData))
+                        .toList(),
                   ),
                 ),
               ),

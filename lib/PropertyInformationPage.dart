@@ -1,16 +1,12 @@
-import 'package:dttproperties/shared.dart';
+import 'package:dttproperties/Property.dart';
+import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
 import 'custom_icons_icons.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class PropertyDetailPage extends StatelessWidget {
-  final String price = "45,000";
-  final String address = "1011KH Raamgrach";
-  final numberOfBedrooms = 3;
-  final numberOfBathrooms = 2;
-  final double distance = 1800.66;
-  final int size = 54;
-  const PropertyDetailPage({super.key});
+class PropertyInformationPage extends StatelessWidget {
+  final Property propertyData;
+  const PropertyInformationPage({required this.propertyData, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +25,14 @@ class PropertyDetailPage extends StatelessWidget {
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.4,
               width: MediaQuery.of(context).size.width,
-              child: Image.asset(
-                "assets/Images/download.jpg",
-                fit: BoxFit.cover,
+              child: Hero(
+                tag: propertyData.imageAddress,
+                child: Image.network(
+                  "https://intern.d-tt.nl${propertyData.imageAddress}",
+                  fit: BoxFit.cover,
+                  color: Color.fromARGB(74, 0, 0, 0),
+                  colorBlendMode: BlendMode.darken,
+                ),
               ),
             ),
           ),
@@ -54,7 +55,7 @@ class PropertyDetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "\$$price",
+                              "\$${propertyData.price}",
                               style: Theme.of(context).textTheme.titleMedium,
                             ),
                             FittedBox(
@@ -63,15 +64,18 @@ class PropertyDetailPage extends StatelessWidget {
                                 children: [
                                   LabelledIcon(
                                       icon: CustomIcons.bed,
-                                      label: "$numberOfBedrooms"),
+                                      label:
+                                          "${propertyData.numberOfBedrooms}"),
                                   LabelledIcon(
                                       icon: CustomIcons.bath,
-                                      label: "$numberOfBathrooms"),
+                                      label:
+                                          "${propertyData.numberOfBedrooms}"),
                                   LabelledIcon(
-                                      icon: CustomIcons.layers, label: "$size"),
+                                      icon: CustomIcons.layers,
+                                      label: "${propertyData.size}"),
                                   LabelledIcon(
                                       icon: CustomIcons.location,
-                                      label: "$distance km"),
+                                      label: "${propertyData.distance}km"),
                                 ],
                               ),
                             )
@@ -86,7 +90,7 @@ class PropertyDetailPage extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(top: 20),
                         child: Text(
-                          "Lremm oinaso incoasinocnoauscbkvidak dspofuvhbfduvnlksjac  adusbvkdvsbnvkds  ohiubdskhjvbkudsbluibvdsiu oubdsv pbnodvsubiuvdsbo dvsbioubdosiubouzdsboiubasdouidbviuzbvdsouzu  oiuobubdskvuzbouzbdsvou  oiuhbdvoisoiubokasdbuo o ubsdoiuvbo oibijdsvbohbdsikbdv obdkvhjbvadphnasdov ",
+                          propertyData.description,
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ),

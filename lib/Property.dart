@@ -4,12 +4,12 @@ class Property {
   final int price;
   final int numberOfBedrooms;
   final int numberOfBathrooms;
-  final int size = 54;
+  final int size;
   final String description;
   final String zip;
   final String city;
-  final String latitude;
-  final String longitude;
+  final int latitude;
+  final int longitude;
   final String dateCreated;
   Property({
     required this.id,
@@ -17,6 +17,7 @@ class Property {
     required this.price,
     required this.numberOfBedrooms,
     required this.numberOfBathrooms,
+    required this.size,
     required this.description,
     required this.zip,
     required this.city,
@@ -24,4 +25,7 @@ class Property {
     required this.longitude,
     required this.dateCreated,
   });
+
+  get address => "$zip $city";
+  get distance => 100.66;
 }

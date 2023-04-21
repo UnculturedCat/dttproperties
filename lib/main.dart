@@ -1,8 +1,11 @@
 import 'package:dttproperties/NavigatorManager.dart';
-import 'package:dttproperties/shared.dart';
+import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'DataManager.dart';
+
+Future main() async {
+  await DataManager().collectAllPropertiesFromServer();
   runApp(const MyApp());
 }
 
