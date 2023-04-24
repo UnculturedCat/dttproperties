@@ -25,9 +25,44 @@ class InformationScreen extends StatelessWidget {
               ),
               Container(
                 padding: EdgeInsets.only(top: 20),
-                child: Text(
-                  "Lremm oinaso incoasinocnoauscbkvidak dspofuvhbfduvnlksjac  adusbvkdvsbnvkds  ohiubdskhjvbkudsbluibvdsiu oubdsv pbnodvsubiuvdsbo dvsbioubdosiubouzdsboiubasdouidbviuzbvdsouzu  oiuobubdskvuzbouzbdsvou  oiuhbdvoisoiubokasdbuo o ubsdoiuvbo oibijdsvbohbdsikbdv obdkvhjbvadphnasdov ",
-                  style: Theme.of(context).textTheme.bodyLarge,
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                          text:
+                              "DTT is not your average software development company because besides technical knowledge we also have a solid marketing background. With passion, we work on a perfect mix of technology, strategy,and creativity.\nDTT was established in 2010, and in a short period we have made significant steps forward; a substantial"),
+                      TextSpan(
+                          text: " portfolio",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: secondaryColor)),
+                      TextSpan(text: ", excellent"),
+                      TextSpan(
+                          text: " credentials",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: secondaryColor)),
+                      TextSpan(text: ", respectable"),
+                      TextSpan(
+                          text: " clients",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: secondaryColor)),
+                      TextSpan(
+                          text: ", most importantly a competent and driven"),
+                      TextSpan(
+                          text: "team",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(color: secondaryColor)),
+                      TextSpan(text: "."),
+                    ],
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
                 ),
               ),
               Container(
@@ -53,7 +88,7 @@ class InformationScreen extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: "by DTT\n",
-                                style: Theme.of(context).textTheme.labelLarge,
+                                style: Theme.of(context).textTheme.labelMedium,
                               ),
                               TextSpan(
                                   text: "d-tt.nl",

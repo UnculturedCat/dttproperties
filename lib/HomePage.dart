@@ -1,58 +1,46 @@
-import 'package:dttproperties/DataManager.dart';
-import 'package:dttproperties/Property.dart';
+import 'package:dttproperties/PropertyResults.dart';
+import 'package:dttproperties/Searchbar.dart';
 import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
-import 'package:dttproperties/PropertyWidget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with AutomaticKeepAliveClientMixin {
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xfff7f7f7),
-        body: Container(
-          padding: standardPagePadding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "DTT REAL ESTATE",
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 30, bottom: 20),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    hintText: "Search for a home",
-                    hintStyle: Theme.of(context).textTheme.titleSmall,
-                    filled: true,
-                    fillColor: inactiveColor,
-                    suffixIcon: Icon(Icons.search),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    contentPadding: EdgeInsets.all(10),
-                  ),
+    super.build;
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: const Color(0xfff7f7f7),
+          body: Container(
+            padding: standardPagePadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "DTT REAL ESTATE",
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: DataManager()
-                        .collectedPropertiesData
-                        .map((propertyData) =>
-                            PropertyWidget(propertyData: propertyData))
-                        .toList(),
-                  ),
+                SearchBar(),
+                Expanded(
+                  child: PropertyResults(),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

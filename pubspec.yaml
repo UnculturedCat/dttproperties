@@ -39,6 +39,8 @@ dependencies:
   google_maps_flutter_web: ^0.4.0+7
   url_launcher: ^6.1.10
   http: ^0.13.5
+  riverpod: ^2.3.5
+  flutter_riverpod: ^2.3.5
 
 dev_dependencies:
   flutter_test:
@@ -67,7 +69,6 @@ flutter:
     - assets/Icons/
     - assets/Images/
     - assets/Images/dtt_banner/xxxhdpi/dtt_banner.png
-    - assets/Images/download.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

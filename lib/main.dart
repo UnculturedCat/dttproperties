@@ -1,12 +1,10 @@
 import 'package:dttproperties/NavigatorManager.dart';
 import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'DataManager.dart';
-
-Future main() async {
-  await DataManager().collectAllPropertiesFromServer();
-  runApp(const MyApp());
+void main() {
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +23,8 @@ class MyApp extends StatelessWidget {
               fontSize: 14, fontWeight: FontWeight.w500, color: detailColor),
           bodySmall: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
           bodyMedium: TextStyle(fontSize: 10, fontWeight: FontWeight.w400),
-          labelLarge: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
+          labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+          labelMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
         ),
       ),
       home: NavigationManager(),
