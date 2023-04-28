@@ -1,7 +1,7 @@
 import 'package:dttproperties/Property.dart';
+import 'package:dttproperties/PropertyDetailWidget.dart';
 import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
-import 'custom_icons_icons.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PropertyInformationPage extends StatelessWidget {
@@ -58,27 +58,9 @@ class PropertyInformationPage extends StatelessWidget {
                               "\$${propertyData.price}",
                               style: Theme.of(context).textTheme.titleMedium,
                             ),
-                            FittedBox(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  LabelledIcon(
-                                      icon: CustomIcons.bed,
-                                      label:
-                                          "${propertyData.numberOfBedrooms}"),
-                                  LabelledIcon(
-                                      icon: CustomIcons.bath,
-                                      label:
-                                          "${propertyData.numberOfBedrooms}"),
-                                  LabelledIcon(
-                                      icon: CustomIcons.layers,
-                                      label: "${propertyData.size}"),
-                                  LabelledIcon(
-                                      icon: CustomIcons.location,
-                                      label: "${propertyData.distance}km"),
-                                ],
-                              ),
-                            )
+                            PropertyDetail(
+                              propertyData: propertyData,
+                            ),
                           ],
                         ),
                       ),
@@ -104,9 +86,20 @@ class PropertyInformationPage extends StatelessWidget {
                         height: MediaQuery.of(context).size.height * 0.3,
                         child: GoogleMap(
                           initialCameraPosition: CameraPosition(
-                            target: LatLng(45.521563, -122.677433),
+                            target: LatLng(propertyData.latitude.toDouble(),
+                                propertyData.longitude.toDouble()),
                             zoom: 10.0,
                           ),
+                          zoomGesturesEnabled: true,
+                          markers: {
+                            Marker(
+                              markerId: MarkerId("propertyLocation"),
+                              position: LatLng(
+                                propertyData.latitude.toDouble(),
+                                propertyData.longitude.toDouble(),
+                              ),
+                            )
+                          },
                         ),
                       )
                     ],

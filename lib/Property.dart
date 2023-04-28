@@ -27,5 +27,4 @@ class Property {
   });
 
   get address => "$zip $city";
-  get distance => 100.66;
 }

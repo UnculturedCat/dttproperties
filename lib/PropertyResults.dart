@@ -1,4 +1,4 @@
-import 'package:dttproperties/DataManager.dart';
+import 'package:dttproperties/Providers.dart';
 import 'package:dttproperties/PropertyWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,7 +37,7 @@ class PropertyResults extends ConsumerWidget {
               );
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (error, stack) => const Center(child: Text('Error')),
+      error: (error, stack) => Center(child: Text(error.toString())),
     );
   }
 }

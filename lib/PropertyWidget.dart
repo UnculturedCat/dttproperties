@@ -1,6 +1,6 @@
 import 'package:dttproperties/Property.dart';
+import 'package:dttproperties/PropertyDetailWidget.dart';
 import 'package:dttproperties/PropertyInformationPage.dart';
-import 'package:dttproperties/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:dttproperties/Shared.dart';
 
@@ -79,29 +79,9 @@ class PropertyWidget extends StatelessWidget {
                           ),
                         ],
                       ),
-                      FittedBox(
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                LabelledIcon(
-                                    icon: CustomIcons.bed,
-                                    label: "${propertyData.numberOfBedrooms}"),
-                                LabelledIcon(
-                                    icon: CustomIcons.bath,
-                                    label: "${propertyData.numberOfBathrooms}"),
-                                LabelledIcon(
-                                    icon: CustomIcons.layers,
-                                    label: "${propertyData.size}"),
-                                LabelledIcon(
-                                    icon: CustomIcons.location,
-                                    label: "${propertyData.distance} km"),
-                              ],
-                            ),
-                          ],
-                        ),
-                      )
+                      PropertyDetail(
+                        propertyData: propertyData,
+                      ),
                     ],
                   ),
                 )
