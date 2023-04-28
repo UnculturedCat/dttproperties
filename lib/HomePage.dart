@@ -22,7 +22,6 @@ class _HomePageState extends ConsumerState<HomePage>
       onTap: () => FocusScope.of(context).unfocus(),
       child: SafeArea(
         child: Scaffold(
-          backgroundColor: const Color(0xfff7f7f7),
           body: hasInternet.when(
               data: (connectedToInternet) {
                 return connectedToInternet
