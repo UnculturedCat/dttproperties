@@ -45,3 +45,4 @@ app.*.map.json
 lib/api_keys.dart
 web/index.html
 web/index.html
+web/index.html
