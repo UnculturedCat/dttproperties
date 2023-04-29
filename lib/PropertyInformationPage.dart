@@ -1,20 +1,50 @@
 import 'package:dttproperties/Property.dart';
 import 'package:dttproperties/PropertyDetailWidget.dart';
+import 'package:dttproperties/Providers.dart';
 import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class PropertyInformationPage extends StatelessWidget {
+class PropertyInformationPage extends ConsumerWidget {
   final Property propertyData;
   const PropertyInformationPage({required this.propertyData, super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteProperties = ref.watch(favoritePropertiesProvider);
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
+        actions: [
+          !favoriteProperties.contains(propertyData)
+              ? IconButton(
+                  onPressed: () {
+                    // ref.read(favoritePropertiesProvider.notifier).state =
+                    //     ref.read(favoritePropertiesProvider) + [propertyData];
+
+                    // for the sake of uniformity we will use the same method to add and remove properties from the favorite list
+
+                    ref.read(favoritePropertiesProvider).add(propertyData);
+                    ref.read(favoritePropertiesProvider.notifier).state = ref
+                            .read(favoritePropertiesProvider) +
+                        []; // the [] operator is added to force the provider to notify the listeners
+                  },
+                  icon: Icon(Icons.favorite_border),
+                  color: Colors.white,
+                )
+              : IconButton(
+                  onPressed: () {
+                    ref.read(favoritePropertiesProvider).remove(propertyData);
+                    ref.read(favoritePropertiesProvider.notifier).state =
+                        ref.read(favoritePropertiesProvider) + [];
+                  },
+                  icon: Icon(Icons.favorite),
+                  color: Colors.red,
+                ),
+        ],
       ),
       extendBodyBehindAppBar: true,
       backgroundColor: primaryColor,

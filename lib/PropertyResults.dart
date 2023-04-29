@@ -28,6 +28,8 @@ class PropertyResults extends ConsumerWidget {
                 ),
               )
             : ListView.builder(
+                padding: EdgeInsets.only(
+                    bottom: 70), // extra space for the last item to be visible
                 itemCount: properties.length,
                 itemBuilder: (context, index) {
                   return PropertyWidget(

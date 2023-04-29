@@ -37,6 +37,8 @@ final collectedProperties = FutureProvider<List<Property>>((ref) async {
       .toList();
 });
 
+final favoritePropertiesProvider = StateProvider<List<Property>>((ref) => []);
+
 final searchQuery = StateProvider<String>((ref) => '');
 final locationPermissionProvider = StateProvider<bool>((ref) => false);
 
