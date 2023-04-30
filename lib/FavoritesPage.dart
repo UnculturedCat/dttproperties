@@ -1,5 +1,4 @@
 import 'package:dttproperties/PropertyGridWidget.dart';
-import 'package:dttproperties/PropertyWidget.dart';
 import 'package:dttproperties/Providers.dart';
 import 'package:dttproperties/Shared.dart';
 import 'package:flutter/material.dart';

@@ -1,7 +1,5 @@
 import 'package:dttproperties/Property.dart';
 import 'package:dttproperties/PropertyInformationPage.dart';
-import 'package:dttproperties/Providers.dart';
-import 'package:dttproperties/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:dttproperties/Shared.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

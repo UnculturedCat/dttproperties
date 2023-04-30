@@ -1,3 +1,4 @@
+import 'package:dttproperties/MapsPage.dart';
 import 'package:dttproperties/Property.dart';
 import 'package:dttproperties/PropertyDetailWidget.dart';
 import 'package:dttproperties/Providers.dart';
@@ -115,22 +116,33 @@ class PropertyInformationPage extends ConsumerWidget {
                         padding: EdgeInsets.only(top: 20, bottom: 20),
                         height: MediaQuery.of(context).size.height * 0.3,
                         child: GoogleMap(
-                          initialCameraPosition: CameraPosition(
-                            target: LatLng(propertyData.latitude.toDouble(),
-                                propertyData.longitude.toDouble()),
-                            zoom: 10.0,
-                          ),
-                          zoomGesturesEnabled: true,
-                          markers: {
-                            Marker(
-                              markerId: MarkerId("propertyLocation"),
-                              position: LatLng(
-                                propertyData.latitude.toDouble(),
-                                propertyData.longitude.toDouble(),
-                              ),
-                            )
-                          },
-                        ),
+                            initialCameraPosition: CameraPosition(
+                              target: LatLng(propertyData.latitude.toDouble(),
+                                  propertyData.longitude.toDouble()),
+                              zoom: 10.0,
+                            ),
+                            zoomGesturesEnabled: true,
+                            markers: {
+                              Marker(
+                                markerId: MarkerId("propertyLocation"),
+                                position: LatLng(
+                                  propertyData.latitude.toDouble(),
+                                  propertyData.longitude.toDouble(),
+                                ),
+                              )
+                            },
+                            onTap: (latLng) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MapsPage(
+                                    latitude: propertyData.latitude.toDouble(),
+                                    longitude:
+                                        propertyData.longitude.toDouble(),
+                                  ),
+                                ),
+                              );
+                            }),
                       )
                     ],
                   ),

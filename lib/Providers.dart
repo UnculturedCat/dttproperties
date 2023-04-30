@@ -25,8 +25,8 @@ final collectedProperties = FutureProvider<List<Property>>((ref) async {
         description: property['description'] ?? '',
         zip: property['zip'] ?? '',
         city: property['city'] ?? '',
-        latitude: property['latitude'] ?? '',
-        longitude: property['longitude'] ?? '',
+        latitude: property['latitude'] ?? 0,
+        longitude: property['longitude'] ?? 0,
         dateCreated: property['date_created'] ?? '',
       ));
     }
@@ -41,6 +41,7 @@ final favoritePropertiesProvider = StateProvider<List<Property>>((ref) => []);
 
 final searchQuery = StateProvider<String>((ref) => '');
 final locationPermissionProvider = StateProvider<bool>((ref) => false);
+final appLoadingProvider = StateProvider<bool>((ref) => false);
 
 final currentPositionFutureProvider = FutureProvider<Position>(
   (ref) async {
