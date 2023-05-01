@@ -8,7 +8,8 @@ import 'package:url_launcher/url_launcher.dart';
 class MapsPage extends StatelessWidget {
   final double latitude;
   final double longitude;
-  const MapsPage({required this.latitude, required this.longitude, super.key});
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  MapsPage({required this.latitude, required this.longitude, super.key});
 
   void openMaps() async {
     String mapUrl = "";
@@ -22,13 +23,29 @@ class MapsPage extends StatelessWidget {
     if (await canLaunchUrl(mapUri)) {
       try {
         await launchUrl(mapUri);
-      } catch (e) {}
+      } catch (e) {
+        showDialog(
+          context: _scaffoldKey.currentState!.context,
+          builder: (context) => AlertDialog(
+            title: Text("Could not open maps"),
+            content: Text("Please try again later"),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text("OK"))
+            ],
+          ),
+        );
+      }
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Property Location"),
         backgroundColor: secondaryColor,

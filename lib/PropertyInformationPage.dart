@@ -9,13 +9,17 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class PropertyInformationPage extends ConsumerWidget {
   final Property propertyData;
-  const PropertyInformationPage({required this.propertyData, super.key});
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  PropertyInformationPage({required this.propertyData, super.key});
+
+  void callHouseAgent() {}
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final favoriteProperties = ref.watch(favoritePropertiesProvider);
     return SafeArea(
         child: Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
@@ -114,36 +118,48 @@ class PropertyInformationPage extends ConsumerWidget {
                       ),
                       Container(
                         padding: EdgeInsets.only(top: 20, bottom: 20),
-                        height: MediaQuery.of(context).size.height * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.4,
                         child: GoogleMap(
-                            initialCameraPosition: CameraPosition(
-                              target: LatLng(propertyData.latitude.toDouble(),
-                                  propertyData.longitude.toDouble()),
-                              zoom: 10.0,
-                            ),
-                            zoomGesturesEnabled: true,
-                            markers: {
-                              Marker(
-                                markerId: MarkerId("propertyLocation"),
-                                position: LatLng(
-                                  propertyData.latitude.toDouble(),
-                                  propertyData.longitude.toDouble(),
+                          initialCameraPosition: CameraPosition(
+                            target: LatLng(propertyData.latitude.toDouble(),
+                                propertyData.longitude.toDouble()),
+                            zoom: 10.0,
+                          ),
+                          zoomGesturesEnabled: true,
+                          markers: {
+                            Marker(
+                              markerId: MarkerId("propertyLocation"),
+                              position: LatLng(
+                                propertyData.latitude.toDouble(),
+                                propertyData.longitude.toDouble(),
+                              ),
+                            )
+                          },
+                          onTap: (latLng) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MapsPage(
+                                  latitude: propertyData.latitude.toDouble(),
+                                  longitude: propertyData.longitude.toDouble(),
                                 ),
-                              )
-                            },
-                            onTap: (latLng) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => MapsPage(
-                                    latitude: propertyData.latitude.toDouble(),
-                                    longitude:
-                                        propertyData.longitude.toDouble(),
-                                  ),
-                                ),
-                              );
-                            }),
-                      )
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        padding: contentPadding.copyWith(bottom: 20),
+                        child: ElevatedButton.icon(
+                          onPressed: callHouseAgent,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: secondaryColor,
+                          ),
+                          icon: Icon(Icons.call),
+                          label: Text("Contact Seller"),
+                        ),
+                      ),
                     ],
                   ),
                 ),
