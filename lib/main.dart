@@ -1,5 +1,5 @@
-import 'package:dttproperties/NavigatorManager.dart';
-import 'package:dttproperties/Shared.dart';
+import 'package:dttproperties/AppManagement/Navigation/NavigatorManager.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

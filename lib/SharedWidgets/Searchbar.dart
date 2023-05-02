@@ -1,8 +1,8 @@
-import 'package:dttproperties/Providers.dart';
+import 'package:dttproperties/AppManagement/Providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'Shared.dart';
+import '../AppManagement/Shared.dart';
 
 class SearchBar extends ConsumerWidget {
   final _formKey = GlobalKey<FormState>();
@@ -30,7 +30,7 @@ class SearchBar extends ConsumerWidget {
             contentPadding: EdgeInsets.all(10),
           ),
           onChanged: (value) {
-            ref.read(searchQuery.notifier).state = value;
+            ref.read(searchQueryProvider.notifier).state = value;
           },
         ),
       ),

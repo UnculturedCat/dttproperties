@@ -1,7 +1,7 @@
-import 'package:dttproperties/Property.dart';
-import 'package:dttproperties/PropertyInformationPage.dart';
+import 'package:dttproperties/Models/Property.dart';
+import 'package:dttproperties/Pages/Secondary/PropertyInformationPage.dart';
 import 'package:flutter/material.dart';
-import 'package:dttproperties/Shared.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PropertyGridWidget extends ConsumerWidget {

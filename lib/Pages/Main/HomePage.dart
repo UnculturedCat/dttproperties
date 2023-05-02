@@ -1,9 +1,9 @@
-import 'package:dttproperties/PropertyResults.dart';
-import 'package:dttproperties/Providers.dart';
-import 'package:dttproperties/Searchbar.dart';
-import 'package:dttproperties/Shared.dart';
-import 'package:dttproperties/custom_icons_icons.dart';
-import 'package:dttproperties/FavoritesPage.dart';
+import 'package:dttproperties/SharedWidgets/PropertyResults.dart';
+import 'package:dttproperties/AppManagement/Providers.dart';
+import 'package:dttproperties/SharedWidgets/Searchbar.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/Icons/custom_icons_icons.dart';
+import 'package:dttproperties/Pages/Secondary/FavoritesPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

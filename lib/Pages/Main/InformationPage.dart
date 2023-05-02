@@ -1,10 +1,10 @@
-import 'package:dttproperties/Shared.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class InformationScreen extends StatelessWidget {
-  const InformationScreen({super.key});
+class InformationPage extends StatelessWidget {
+  const InformationPage({super.key});
 
   @override
   Widget build(BuildContext context) {

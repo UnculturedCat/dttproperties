@@ -1,6 +1,6 @@
-import 'package:dttproperties/PropertyGridWidget.dart';
-import 'package:dttproperties/Providers.dart';
-import 'package:dttproperties/Shared.dart';
+import 'package:dttproperties/SharedWidgets/PropertyGridWidget.dart';
+import 'package:dttproperties/AppManagement/Providers.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

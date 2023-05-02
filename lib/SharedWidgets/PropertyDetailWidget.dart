@@ -1,10 +1,10 @@
-import 'package:dttproperties/Property.dart';
-import 'package:dttproperties/Providers.dart';
-import 'package:dttproperties/Shared.dart';
-import 'package:dttproperties/custom_icons_icons.dart';
+import 'package:dttproperties/Models/Property.dart';
+import 'package:dttproperties/AppManagement/Providers.dart';
+import 'package:dttproperties/Icons/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:dttproperties/SharedWidgets/LabelledIconWidget.dart';
 
 class PropertyDetail extends ConsumerWidget {
   final Property propertyData;

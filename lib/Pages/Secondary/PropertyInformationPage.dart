@@ -1,8 +1,8 @@
-import 'package:dttproperties/MapsPage.dart';
-import 'package:dttproperties/Property.dart';
-import 'package:dttproperties/PropertyDetailWidget.dart';
-import 'package:dttproperties/Providers.dart';
-import 'package:dttproperties/Shared.dart';
+import 'package:dttproperties/Pages/Secondary/MapsPage.dart';
+import 'package:dttproperties/Models/Property.dart';
+import 'package:dttproperties/SharedWidgets/PropertyDetailWidget.dart';
+import 'package:dttproperties/AppManagement/Providers.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

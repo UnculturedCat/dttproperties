@@ -1,9 +1,9 @@
-import 'package:dttproperties/custom_icons_icons.dart';
-import 'package:dttproperties/Shared.dart';
+import 'package:dttproperties/Icons/custom_icons_icons.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
 
-import 'HomePage.dart';
-import 'InformationScreen.dart';
+import '../../Pages/Main/HomePage.dart';
+import '../../Pages/Main/InformationPage.dart';
 
 class NavigationManager extends StatefulWidget {
   const NavigationManager({super.key});
@@ -45,7 +45,7 @@ class _NavigationManagerState extends State<NavigationManager> {
       ),
       body: [
         const HomePage(),
-        const InformationScreen(),
+        const InformationPage(),
       ][_selectedIndex],
     );
   }

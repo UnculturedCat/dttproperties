@@ -1,15 +1,34 @@
 import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:dttproperties/Property.dart';
-import 'package:dttproperties/api_keys.dart';
+import 'package:dttproperties/Models/Property.dart';
+import 'package:dttproperties/AppManagement/api_keys.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+final favoritePropertiesProvider = StateProvider<List<Property>>((ref) => []);
+final searchQueryProvider = StateProvider<String>((ref) => '');
+final locationPermissionProvider = StateProvider<bool>((ref) => false);
+final appLoadingProvider = StateProvider<bool>((ref) => false);
+final connectivityStatusStreamProvider =
+    StreamProvider((ref) => Connectivity().onConnectivityChanged);
+
+final internetConnectivityStatusProvider = FutureProvider<bool>(
+  (ref) async {
+    bool connectedToInternet = false;
+    final connectivityStatus =
+        ref.watch(connectivityStatusStreamProvider).value;
+    if (connectivityStatus != ConnectivityResult.none) {
+      connectedToInternet = await InternetConnectionChecker().hasConnection;
+    }
+    return connectedToInternet;
+  },
+);
+
 final collectedProperties = FutureProvider<List<Property>>((ref) async {
   final List<Property> collectedPropertiesData = [];
-  final query = ref.watch(searchQuery);
+  final query = ref.watch(searchQueryProvider);
   Uri url = Uri.parse('https://intern.d-tt.nl/api/house');
   final response = await http.get(url, headers: {'Access-Key': houseAPIKey});
   if (response.statusCode == 200) {
@@ -36,12 +55,6 @@ final collectedProperties = FutureProvider<List<Property>>((ref) async {
           property.city.toLowerCase().contains(query.trim().toLowerCase()))
       .toList();
 });
-
-final favoritePropertiesProvider = StateProvider<List<Property>>((ref) => []);
-
-final searchQuery = StateProvider<String>((ref) => '');
-final locationPermissionProvider = StateProvider<bool>((ref) => false);
-final appLoadingProvider = StateProvider<bool>((ref) => false);
 
 final currentPositionFutureProvider = FutureProvider<Position>(
   (ref) async {
@@ -90,18 +103,3 @@ Future<bool> locationPermissionGiven() async {
   );
   return permissionGiven;
 }
-
-final connectivityStatusStreamProvider =
-    StreamProvider((ref) => Connectivity().onConnectivityChanged);
-
-final internetConnectivityStatusProvider = FutureProvider<bool>(
-  (ref) async {
-    bool connectedToInternet = false;
-    final connectivityStatus =
-        ref.watch(connectivityStatusStreamProvider).value;
-    if (connectivityStatus != ConnectivityResult.none) {
-      connectedToInternet = await InternetConnectionChecker().hasConnection;
-    }
-    return connectedToInternet;
-  },
-);
