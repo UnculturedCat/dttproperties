@@ -11,18 +11,21 @@ class SearchBar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
-      padding: EdgeInsets.only(top: 30, bottom: 20),
+      padding: standardPagePadding.copyWith(top: 30, bottom: 20),
       child: Form(
         key: _formKey,
         child: TextFormField(
           decoration: InputDecoration(
             hintText: "Enter a location",
             hintStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: detailColor,
+                  color: hintColor,
                 ),
             filled: true,
             fillColor: inactiveColor,
-            suffixIcon: Icon(Icons.search),
+            suffixIcon: Icon(
+              Icons.search,
+              color: hintColor,
+            ),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(10),

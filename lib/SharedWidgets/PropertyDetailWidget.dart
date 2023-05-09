@@ -21,7 +21,7 @@ class PropertyDetail extends ConsumerWidget {
                     propertyData.latitude.toDouble(),
                     propertyData.longitude.toDouble()) /
                 1000) // convert to km
-            .toStringAsFixed(2);
+            .toStringAsFixed(1);
         return FittedBox(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,

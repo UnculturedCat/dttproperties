@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const Color detailColor = Color(0x66000000);
+const Color hintColor = Color(0x33000000);
 const Color backgroundColor = Color(0xfff7f7f7);
 const Color inactiveColor = Color(0xFFebebeb);
 const Color cardShadowColor = Color(0x66ebebeb);

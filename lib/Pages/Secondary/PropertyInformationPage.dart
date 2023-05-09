@@ -27,9 +27,6 @@ class PropertyInformationPage extends ConsumerWidget {
           !favoriteProperties.contains(propertyData)
               ? IconButton(
                   onPressed: () {
-                    // ref.read(favoritePropertiesProvider.notifier).state =
-                    //     ref.read(favoritePropertiesProvider) + [propertyData];
-
                     // for the sake of uniformity we will use the same method to add and remove properties from the favorite list
 
                     ref.read(favoritePropertiesProvider).add(propertyData);
@@ -90,7 +87,7 @@ class PropertyInformationPage extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "\$${propertyData.price}",
+                              "\$${propertyData.formattedPriceString}",
                               style: Theme.of(context).textTheme.titleMedium,
                             ),
                             PropertyDetail(

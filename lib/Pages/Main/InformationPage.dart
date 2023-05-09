@@ -20,8 +20,10 @@ class InformationPage extends StatelessWidget {
             children: [
               Container(
                 padding: contentPadding,
-                child: Text("About",
-                    style: Theme.of(context).textTheme.titleMedium),
+                child: Text(
+                  "ABOUT",
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
               ),
               Container(
                 padding: EdgeInsets.only(top: 20),

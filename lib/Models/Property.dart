@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Property {
   final int id;
   final String imageAddress;
@@ -26,5 +28,16 @@ class Property {
     required this.dateCreated,
   });
 
-  get address => "$zip $city";
+  get address {
+    return "$formatedZipCode $city";
+  }
+
+  get formattedPriceString {
+    NumberFormat priceformat = NumberFormat.decimalPattern("en_US");
+    return priceformat.format(price);
+  }
+
+  get formatedZipCode {
+    return zip.replaceAll(RegExp(r' '), "");
+  }
 }

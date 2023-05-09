@@ -68,12 +68,12 @@ class _HomePageState extends ConsumerState<HomePage>
             body: hasInternet.when(
                 data: (connectedToInternet) {
                   return connectedToInternet
-                      ? Container(
-                          padding: standardPagePadding,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: standardPagePadding,
+                              child: Row(
                                 children: [
                                   Text(
                                     "DTT REAL ESTATE",
@@ -90,12 +90,12 @@ class _HomePageState extends ConsumerState<HomePage>
                                   ),
                                 ],
                               ),
-                              SearchBar(),
-                              Expanded(
-                                child: PropertyResults(),
-                              ),
-                            ],
-                          ),
+                            ),
+                            SearchBar(),
+                            Expanded(
+                              child: PropertyResults(),
+                            ),
+                          ],
                         )
                       : Center(
                           child: Text("No internet connection"),

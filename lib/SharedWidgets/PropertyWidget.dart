@@ -21,6 +21,7 @@ class PropertyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(top: 20),
+      padding: standardPagePadding,
       child: InkWell(
         onTap: () => _navigateToPropertyPage(context),
         child: Container(
@@ -53,8 +54,9 @@ class PropertyWidget extends StatelessWidget {
                         child: Hero(
                           tag: propertyData.imageAddress,
                           child: Image.network(
-                              "https://intern.d-tt.nl${propertyData.imageAddress}",
-                              fit: BoxFit.cover),
+                            "https://intern.d-tt.nl${propertyData.imageAddress}",
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
@@ -70,7 +72,7 @@ class PropertyWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "\$${propertyData.price}",
+                            "\$${propertyData.formattedPriceString}",
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           Text(
