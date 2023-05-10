@@ -22,97 +22,90 @@ class _HomePageState extends ConsumerState<HomePage>
     final hasInternet = ref.watch(internetConnectivityStatusProvider);
     super.build;
     return SafeArea(
-      child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Scaffold(
-            key: _scarfoldKey,
-            endDrawer: Drawer(
-              child: ListView(
-                children: [
-                  DrawerHeader(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(radius: 50, child: Icon(Icons.person)),
-                        Spacer(),
-                        Text(
-                          "Useful Padawan",
-                          style: Theme.of(context).textTheme.titleLarge,
-                        )
-                      ],
-                    ),
+      child: Scaffold(
+          key: _scarfoldKey,
+          endDrawer: Drawer(
+            child: ListView(
+              children: [
+                DrawerHeader(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(radius: 50, child: Icon(Icons.person)),
+                      Spacer(),
+                      Text(
+                        "Useful Padawan",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      )
+                    ],
                   ),
-                  ListTile(
-                    leading: Icon(Icons.favorite),
-                    title: Text("Favorites"),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => FavoritesPage()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text("Profile settings"),
-                    onTap: () {},
-                  ),
-                  ListTile(
-                    leading: Icon(CustomIcons.close),
-                    title: Text("sign out"),
-                    onTap: () {
-                      //ref.read(authServiceProvider).signOut();
-                    },
-                  ),
-                ],
-              ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.favorite),
+                  title: Text("Favorites"),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => FavoritesPage()));
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text("Profile settings"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(CustomIcons.close),
+                  title: Text("sign out"),
+                  onTap: () {},
+                ),
+              ],
             ),
-            body: hasInternet.when(
-                data: (connectedToInternet) {
-                  return connectedToInternet
-                      ? Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: standardPagePadding,
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "DTT REAL ESTATE",
-                                    style:
-                                        Theme.of(context).textTheme.titleLarge,
-                                  ),
-                                  Spacer(),
-                                  IconButton(
-                                    icon: Icon(Icons.menu),
-                                    onPressed: () {
-                                      _scarfoldKey.currentState!
-                                          .openEndDrawer();
-                                    },
-                                  ),
-                                ],
-                              ),
+          ),
+          body: hasInternet.when(
+              data: (connectedToInternet) {
+                return connectedToInternet
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: standardPagePadding,
+                            child: Row(
+                              children: [
+                                Text(
+                                  "DTT REAL ESTATE",
+                                  style: Theme.of(context).textTheme.titleLarge,
+                                ),
+                                Spacer(),
+                                IconButton(
+                                  icon: Icon(Icons.menu),
+                                  onPressed: () {
+                                    _scarfoldKey.currentState!.openEndDrawer();
+                                  },
+                                ),
+                              ],
                             ),
-                            SearchBar(),
-                            Expanded(
-                              child: PropertyResults(),
-                            ),
-                          ],
-                        )
-                      : Center(
-                          child: Text("No internet connection"),
-                        );
-                },
-                error: (error, stack) => Center(child: Text(error.toString())),
-                loading: () => Center(child: CircularProgressIndicator())),
-            floatingActionButton: FloatingActionButton.extended(
-              label: Text("Favorites"),
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => FavoritesPage()));
+                          ),
+                          SearchBar(),
+                          Expanded(
+                            child: PropertyResults(),
+                          ),
+                        ],
+                      )
+                    : Center(
+                        child: Text("No internet connection"),
+                      );
               },
-              backgroundColor: secondaryColor,
-              icon: Icon(Icons.favorite),
-            )),
-      ),
+              error: (error, stack) => Center(child: Text(error.toString())),
+              loading: () => Center(child: CircularProgressIndicator())),
+          floatingActionButton: FloatingActionButton.extended(
+            label: Text("Favorites"),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => FavoritesPage()));
+            },
+            backgroundColor: secondaryColor,
+            icon: Icon(Icons.favorite),
+          )),
     );
   }
 
