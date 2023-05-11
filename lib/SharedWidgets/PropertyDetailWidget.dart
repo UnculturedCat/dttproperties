@@ -52,7 +52,6 @@ class PropertyDetail extends ConsumerWidget {
                   label: "${propertyData.numberOfBathrooms}"),
               LabelledIcon(
                   icon: CustomIcons.layers, label: "${propertyData.size}"),
-              LabelledIcon(icon: CustomIcons.location, label: "..km"),
             ],
           ),
         );
