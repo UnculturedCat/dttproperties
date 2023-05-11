@@ -18,6 +18,7 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage>
     with AutomaticKeepAliveClientMixin {
   final _scarfoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     final hasInternet = ref.watch(internetConnectivityStatusProvider);

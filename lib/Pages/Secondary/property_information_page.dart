@@ -6,6 +6,7 @@ import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PropertyInformationPage extends ConsumerWidget {
   final Property propertyData;
@@ -24,24 +25,35 @@ class PropertyInformationPage extends ConsumerWidget {
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
         actions: [
-          !favoriteProperties.contains(propertyData)
+          !favoriteProperties.contains(propertyData.id.toString())
               ? IconButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    final userPreferences =
+                        await SharedPreferences.getInstance();
                     // for the sake of uniformity we will use the same method to add and remove properties from the favorite list
-
-                    ref.read(favoritePropertiesProvider).add(propertyData);
-                    ref.read(favoritePropertiesProvider.notifier).state = ref
-                            .read(favoritePropertiesProvider) +
-                        []; // the [] operator is added to force the provider to notify the listeners
+                    ref
+                        .read(favoritePropertiesProvider)
+                        .add(propertyData.id.toString());
+                    ref.read(favoritePropertiesProvider.notifier).state =
+                        ref.read(favoritePropertiesProvider) + [];
+                    // the [] operator is added to force the provider to notify the listeners
+                    await userPreferences.setStringList(favoritePropertiesKey,
+                        ref.read(favoritePropertiesProvider.notifier).state);
                   },
                   icon: Icon(Icons.favorite_border),
                   color: Colors.white,
                 )
               : IconButton(
-                  onPressed: () {
-                    ref.read(favoritePropertiesProvider).remove(propertyData);
+                  onPressed: () async {
+                    final userPreferences =
+                        await SharedPreferences.getInstance();
+                    ref
+                        .read(favoritePropertiesProvider)
+                        .remove(propertyData.id.toString());
                     ref.read(favoritePropertiesProvider.notifier).state =
                         ref.read(favoritePropertiesProvider) + [];
+                    await userPreferences.setStringList(favoritePropertiesKey,
+                        ref.read(favoritePropertiesProvider.notifier).state);
                   },
                   icon: Icon(Icons.favorite),
                   color: Colors.red,
@@ -154,7 +166,7 @@ class PropertyInformationPage extends ConsumerWidget {
                             backgroundColor: secondaryColor,
                           ),
                           icon: Icon(Icons.call),
-                          label: Text("Contact Seller"),
+                          label: Text("Contact Agent"),
                         ),
                       ),
                     ],

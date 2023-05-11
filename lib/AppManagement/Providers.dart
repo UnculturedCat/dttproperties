@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:dttproperties/Models/Property.dart';
 import 'package:dttproperties/AppManagement/api_keys.dart';
 import 'package:dttproperties/Models/search_filter.dart';
@@ -7,8 +8,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-final favoritePropertiesProvider = StateProvider<List<Property>>((ref) => []);
+final sharedPreferencesProvider = FutureProvider<SharedPreferences>(
+    (ref) async => await SharedPreferences.getInstance());
+
+final favoritePropertiesProvider = StateProvider<List<String>>((ref) {
+  List<String> favoritePropertiesIds = [];
+  ref.watch(sharedPreferencesProvider).whenData((sharedPreferences) {
+    favoritePropertiesIds =
+        sharedPreferences.getStringList(favoritePropertiesKey) ?? [];
+  });
+  return favoritePropertiesIds;
+});
+
 final searchQueryProvider = StateProvider<String>((ref) => '');
 final locationPermissionProvider = StateProvider<bool>((ref) => false);
 final appLoadingProvider = StateProvider<bool>((ref) => false);

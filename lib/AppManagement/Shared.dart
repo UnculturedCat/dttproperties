@@ -10,3 +10,5 @@ const Color secondaryColor = Color(0xffe65541);
 
 const EdgeInsets standardPagePadding = EdgeInsets.only(left: 20, right: 20);
 const EdgeInsets contentPadding = EdgeInsets.only(top: 30);
+
+const String favoritePropertiesKey = "favoriteProperties";
