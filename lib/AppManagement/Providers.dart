@@ -59,6 +59,7 @@ final collectedProperties = FutureProvider<List<Property>>((ref) async {
   return filterProperties(collectedPropertiesData, searchFilter, query);
 });
 
+//Filter the properties based on the search filter and search query
 List<Property> filterProperties(
     List<Property> properties, SearchFilter filter, String query) {
   List<Property> filteredProperties = properties;

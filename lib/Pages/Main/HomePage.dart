@@ -1,3 +1,4 @@
+import 'package:dttproperties/Pages/Secondary/SearchFilterPage.dart';
 import 'package:dttproperties/SharedWidgets/PropertyResults.dart';
 import 'package:dttproperties/AppManagement/Providers.dart';
 import 'package:dttproperties/SharedWidgets/Searchbar.dart';
@@ -86,6 +87,23 @@ class _HomePageState extends ConsumerState<HomePage>
                             ),
                           ),
                           SearchBar(),
+                          Container(
+                            padding: standardPagePadding,
+                            child: Row(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        context: context,
+                                        builder: (context) =>
+                                            SearchFilterPage(),
+                                      );
+                                    },
+                                    icon: Icon(Icons.filter_list)),
+                              ],
+                            ),
+                          ),
                           Expanded(
                             child: PropertyResults(),
                           ),
