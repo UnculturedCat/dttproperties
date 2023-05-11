@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dttproperties/Models/Property.dart';
 import 'package:dttproperties/AppManagement/api_keys.dart';
-import 'package:dttproperties/Models/SearchFilter.dart';
+import 'package:dttproperties/Models/search_filter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;

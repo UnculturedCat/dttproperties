@@ -1,9 +1,9 @@
-import 'package:dttproperties/Icons/custom_icons_icons.dart';
+import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
 
-import '../../Pages/Main/HomePage.dart';
-import '../../Pages/Main/InformationPage.dart';
+import '../../Pages/Main/home_page.dart';
+import '../../Pages/Main/information_page.dart';
 
 class NavigationManager extends StatefulWidget {
   const NavigationManager({super.key});

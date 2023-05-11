@@ -1,7 +1,7 @@
 import 'package:dttproperties/AppManagement/Providers.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
-import 'package:dttproperties/Icons/custom_icons_icons.dart';
-import 'package:dttproperties/Models/SearchFilter.dart';
+import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
+import 'package:dttproperties/Models/search_filter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -1,6 +1,6 @@
 import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/SharedWidgets/PropertyDetailWidget.dart';
-import 'package:dttproperties/Pages/Secondary/PropertyInformationPage.dart';
+import 'package:dttproperties/SharedWidgets/property_detail_widget.dart';
+import 'package:dttproperties/Pages/Secondary/property_information_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
 

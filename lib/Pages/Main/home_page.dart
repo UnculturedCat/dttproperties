@@ -1,10 +1,10 @@
-import 'package:dttproperties/Pages/Secondary/SearchFilterPage.dart';
-import 'package:dttproperties/SharedWidgets/PropertyResults.dart';
+import 'package:dttproperties/Pages/Secondary/search_filter_page.dart';
+import 'package:dttproperties/SharedWidgets/property_result_widget.dart';
 import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/SharedWidgets/Searchbar.dart';
+import 'package:dttproperties/SharedWidgets/searchbar_widget.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
-import 'package:dttproperties/Icons/custom_icons_icons.dart';
-import 'package:dttproperties/Pages/Secondary/FavoritesPage.dart';
+import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
+import 'package:dttproperties/Pages/Secondary/favourite_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

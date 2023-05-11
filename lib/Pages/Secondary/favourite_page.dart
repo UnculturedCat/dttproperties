@@ -1,4 +1,4 @@
-import 'package:dttproperties/SharedWidgets/PropertyGridWidget.dart';
+import 'package:dttproperties/SharedWidgets/property_grid_widget.dart';
 import 'package:dttproperties/AppManagement/Providers.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';

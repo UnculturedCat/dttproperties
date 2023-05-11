@@ -1,5 +1,5 @@
 import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/Pages/Secondary/PropertyInformationPage.dart';
+import 'package:dttproperties/Pages/Secondary/property_information_page.dart';
 import 'package:flutter/material.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

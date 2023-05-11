@@ -1,6 +1,6 @@
-import 'package:dttproperties/Pages/Secondary/MapsPage.dart';
+import 'package:dttproperties/Pages/Secondary/maps_page.dart';
 import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/SharedWidgets/PropertyDetailWidget.dart';
+import 'package:dttproperties/SharedWidgets/property_detail_widget.dart';
 import 'package:dttproperties/AppManagement/Providers.dart';
 import 'package:dttproperties/AppManagement/Shared.dart';
 import 'package:flutter/material.dart';
