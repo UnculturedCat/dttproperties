@@ -1,5 +1,5 @@
-import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/Providers/search_filter_provider.dart';
+import 'package:dttproperties/app_management/constants.dart';
 import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
 import 'package:dttproperties/Models/search_filter.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +65,7 @@ class SearchFilterPage extends ConsumerWidget {
             ],
           ),
           Container(
-            padding: EdgeInsets.only(top: 30),
+            padding: contentPadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

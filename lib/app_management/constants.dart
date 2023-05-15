@@ -12,3 +12,21 @@ const EdgeInsets standardPagePadding = EdgeInsets.only(left: 20, right: 20);
 const EdgeInsets contentPadding = EdgeInsets.only(top: 30);
 
 const String favoritePropertiesKey = "favoriteProperties";
+
+const int gridColumns = 2;
+const double gridChildAspectRatio = 0.8;
+const double gridCrossAxisSpacing = 10;
+const double gridMainAxisSpacing = 10;
+
+const double avatarRadius = 50;
+
+const double pageBodyTopPadding = 20;
+
+const double favouriteImageHeight = 200;
+const double favouriteImageWidth = 200;
+
+const double dttLinkLeftPadding = 30;
+const double bottomPageWidgetPadding = 20;
+
+const double detailIconSize = 16;
+const double detailIconLeftPadding = 5;

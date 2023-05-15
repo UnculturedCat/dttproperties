@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/constants.dart';
 
 class LabelledIcon extends StatelessWidget {
   final IconData icon;
@@ -14,9 +14,9 @@ class LabelledIcon extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(icon, size: 16, color: detailColor),
+          Icon(icon, size: detailIconSize, color: detailColor),
           Container(
-            padding: EdgeInsets.only(left: 5),
+            padding: EdgeInsets.only(left: detailIconLeftPadding),
             child: Text(
               label,
               style: Theme.of(context).textTheme.bodySmall,

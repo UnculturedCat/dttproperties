@@ -1,10 +1,10 @@
-import 'package:dttproperties/Pages/Secondary/search_filter_page.dart';
-import 'package:dttproperties/SharedWidgets/property_result_widget.dart';
-import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/SharedWidgets/searchbar_widget.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/Pages/secondary/search_filter_page.dart';
+import 'package:dttproperties/app_management/Providers/connectivity_status_provider.dart';
+import 'package:dttproperties/shared_widgets/property_result_widget.dart';
+import 'package:dttproperties/shared_widgets/searchbar_widget.dart';
+import 'package:dttproperties/app_management/constants.dart';
 import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
-import 'package:dttproperties/Pages/Secondary/favourite_page.dart';
+import 'package:dttproperties/Pages/secondary/favourite_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -33,7 +33,8 @@ class _HomePageState extends ConsumerState<HomePage>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CircleAvatar(radius: 50, child: Icon(Icons.person)),
+                      CircleAvatar(
+                          radius: avatarRadius, child: Icon(Icons.person)),
                       Spacer(),
                       Text(
                         "Useful Padawan",
@@ -111,7 +112,12 @@ class _HomePageState extends ConsumerState<HomePage>
                         ],
                       )
                     : Center(
-                        child: Text("No internet connection"),
+                        child: Column(
+                          children: [
+                            Icon(Icons.wifi_off),
+                            Text("No internet connection"),
+                          ],
+                        ),
                       );
               },
               error: (error, stack) => Center(child: Text(error.toString())),

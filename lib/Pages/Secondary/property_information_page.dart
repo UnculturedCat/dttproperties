@@ -1,8 +1,8 @@
-import 'package:dttproperties/Pages/Secondary/maps_page.dart';
-import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/SharedWidgets/property_detail_widget.dart';
-import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/Pages/secondary/maps_page.dart';
+import 'package:dttproperties/Models/property.dart';
+import 'package:dttproperties/app_management/Providers/user_preferences_provider.dart';
+import 'package:dttproperties/shared_widgets/property_detail_widget.dart';
+import 'package:dttproperties/app_management/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -159,7 +159,8 @@ class PropertyInformationPage extends ConsumerWidget {
                       ),
                       Container(
                         width: double.infinity,
-                        padding: contentPadding.copyWith(bottom: 20),
+                        padding: contentPadding.copyWith(
+                            bottom: bottomPageWidgetPadding),
                         child: ElevatedButton.icon(
                           onPressed: callHouseAgent,
                           style: ElevatedButton.styleFrom(

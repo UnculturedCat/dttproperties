@@ -1,8 +1,9 @@
-import 'package:dttproperties/SharedWidgets/property_grid_widget.dart';
-import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/Providers/properties_provider.dart';
+import 'package:dttproperties/shared_widgets/property_grid_widget.dart';
+import 'package:dttproperties/app_management/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dttproperties/app_management/Providers/user_preferences_provider.dart';
 
 class FavoritesPage extends ConsumerWidget {
   const FavoritesPage({super.key});
@@ -29,8 +30,8 @@ class FavoritesPage extends ConsumerWidget {
                   children: [
                     Image.asset(
                       'assets/Images/search_state_empty.png',
-                      height: 200,
-                      width: 200,
+                      height: favouriteImageHeight,
+                      width: favouriteImageWidth,
                     ),
                     Text(
                         "No loved properties yet?\nKeep looking, there is a home for everyone!",
@@ -50,10 +51,11 @@ class FavoritesPage extends ConsumerWidget {
                     child: GridView.builder(
                       itemCount: favoriteProperties.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 0.8,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10),
+                        crossAxisCount: gridColumns,
+                        childAspectRatio: gridChildAspectRatio,
+                        crossAxisSpacing: gridCrossAxisSpacing,
+                        mainAxisSpacing: gridMainAxisSpacing,
+                      ),
                       itemBuilder: (context, index) {
                         return PropertyGridWidget(
                           propertyData: favoriteProperties[index],

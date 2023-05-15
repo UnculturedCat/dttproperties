@@ -1,9 +1,9 @@
-import 'package:dttproperties/AppManagement/Providers.dart';
+import 'package:dttproperties/app_management/Providers/search_filter_provider.dart';
 import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/constants.dart';
 
 class SearchBar extends ConsumerWidget {
   final _formKey = GlobalKey<FormState>();
@@ -14,7 +14,8 @@ class SearchBar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final searchQuery = ref.watch(searchQueryProvider);
     return Container(
-      padding: standardPagePadding.copyWith(top: 30, bottom: 20),
+      padding: standardPagePadding.copyWith(
+          top: 30, bottom: bottomPageWidgetPadding),
       child: Form(
         key: _formKey,
         child: TextFormField(

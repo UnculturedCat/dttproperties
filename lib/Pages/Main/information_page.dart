@@ -1,4 +1,4 @@
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/constants.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,7 +26,7 @@ class InformationPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: pageBodyTopPadding),
                 child: RichText(
                   text: TextSpan(
                     children: [
@@ -75,7 +75,7 @@ class InformationPage extends StatelessWidget {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: pageBodyTopPadding),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -84,7 +84,7 @@ class InformationPage extends StatelessWidget {
                             "assets/Images/dtt_banner/xxxhdpi/dtt_banner.png")),
                     Flexible(
                       child: Container(
-                        padding: EdgeInsets.only(left: 30),
+                        padding: EdgeInsets.only(left: dttLinkLeftPadding),
                         child: RichText(
                           text: TextSpan(
                             children: [

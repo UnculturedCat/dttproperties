@@ -1,7 +1,7 @@
-import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/Pages/Secondary/property_information_page.dart';
+import 'package:dttproperties/Models/property.dart';
+import 'package:dttproperties/Pages/secondary/property_information_page.dart';
 import 'package:flutter/material.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PropertyGridWidget extends ConsumerWidget {
@@ -59,7 +59,7 @@ class PropertyGridWidget extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "\$${propertyData.price}",
+                          "\$${propertyData.formattedPriceString}",
                           style: Theme.of(context)
                               .textTheme
                               .titleMedium!
