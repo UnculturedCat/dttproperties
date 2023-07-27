@@ -1,10 +1,10 @@
-import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/Icons/custom_icons_icons.dart';
+import 'package:dttproperties/Models/property.dart';
+import 'package:dttproperties/app_management/Providers/location_provider.dart';
+import 'package:dttproperties/assets/Icons/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:dttproperties/SharedWidgets/LabelledIconWidget.dart';
+import 'package:dttproperties/shared_widgets/labelled_icon_widget.dart';
 
 class PropertyDetail extends ConsumerWidget {
   final Property propertyData;
@@ -21,7 +21,7 @@ class PropertyDetail extends ConsumerWidget {
                     propertyData.latitude.toDouble(),
                     propertyData.longitude.toDouble()) /
                 1000) // convert to km
-            .toStringAsFixed(2);
+            .toStringAsFixed(1);
         return FittedBox(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -52,7 +52,6 @@ class PropertyDetail extends ConsumerWidget {
                   label: "${propertyData.numberOfBathrooms}"),
               LabelledIcon(
                   icon: CustomIcons.layers, label: "${propertyData.size}"),
-              LabelledIcon(icon: CustomIcons.location, label: "..km"),
             ],
           ),
         );

@@ -1,8 +1,8 @@
-import 'package:dttproperties/Models/Property.dart';
-import 'package:dttproperties/SharedWidgets/PropertyDetailWidget.dart';
-import 'package:dttproperties/Pages/Secondary/PropertyInformationPage.dart';
+import 'package:dttproperties/Models/property.dart';
+import 'package:dttproperties/shared_widgets/property_detail_widget.dart';
+import 'package:dttproperties/Pages/secondary/property_information_page.dart';
 import 'package:flutter/material.dart';
-import 'package:dttproperties/AppManagement/Shared.dart';
+import 'package:dttproperties/app_management/constants.dart';
 
 class PropertyWidget extends StatelessWidget {
   final Property propertyData;
@@ -20,7 +20,8 @@ class PropertyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: pageBodyTopPadding),
+      padding: standardPagePadding,
       child: InkWell(
         onTap: () => _navigateToPropertyPage(context),
         child: Container(
@@ -53,8 +54,9 @@ class PropertyWidget extends StatelessWidget {
                         child: Hero(
                           tag: propertyData.imageAddress,
                           child: Image.network(
-                              "https://intern.d-tt.nl${propertyData.imageAddress}",
-                              fit: BoxFit.cover),
+                            "https://intern.d-tt.nl${propertyData.imageAddress}",
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
@@ -70,7 +72,7 @@ class PropertyWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "\$${propertyData.price}",
+                            "\$${propertyData.formattedPriceString}",
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           Text(

@@ -1,5 +1,5 @@
-import 'package:dttproperties/AppManagement/Providers.dart';
-import 'package:dttproperties/SharedWidgets/PropertyWidget.dart';
+import 'package:dttproperties/app_management/Providers/properties_provider.dart';
+import 'package:dttproperties/shared_widgets/property_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
